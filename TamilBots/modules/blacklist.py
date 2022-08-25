@@ -15,7 +15,7 @@ async def blacklist(client, message):
         arg = get_arg(message)
         if len(arg) != 1:
             await message.reply(
-                "pass a user id or user name or reply to a user message"
+                "傳遞用戶 ID 或用戶名或回復用戶消息"
             )
             return ""
         if arg.startswith("@"):
@@ -23,7 +23,7 @@ async def blacklist(client, message):
                 user = await app.get_users(arg)
                 user_id = user.id
             except BadRequest as ex:
-                await message.reply("not a valid user")
+                await message.reply("不是有效用戶")
                 print(ex)
                 return ""
         else:
@@ -40,7 +40,7 @@ async def unblacklist(client, message):
         arg = get_arg(message)
         if len(arg) != 1:
             await message.reply(
-                "pass a user id or user name or reply to a user message"
+                "傳遞用戶 ID 或用戶名或回復用戶消息"
             )
             return ""
         if arg.startswith("@"):
@@ -48,7 +48,7 @@ async def unblacklist(client, message):
                 user = await app.get_users(arg)
                 user_id = user.id
             except BadRequest:
-                await message.reply("not a valid user")
+                await message.reply("不是有效用戶")
                 return ""
         else:
             user_id = int(arg)
